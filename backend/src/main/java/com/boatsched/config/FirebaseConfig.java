@@ -27,6 +27,12 @@ public class FirebaseConfig {
         }
 
         try {
+            java.io.File configFile = new java.io.File(firebaseConfigPath);
+            if (!configFile.exists()) {
+                logger.warn("Firebase config file not found at: {}. FCM notifications will not work.", firebaseConfigPath);
+                return;
+            }
+
             FileInputStream serviceAccount = new FileInputStream(firebaseConfigPath);
 
             FirebaseOptions options = FirebaseOptions.builder()

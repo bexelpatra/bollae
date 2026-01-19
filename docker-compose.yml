@@ -36,8 +36,9 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
-    volumes:
-      - ${FIREBASE_CONFIG_PATH:-./firebase-config.json}:/app/firebase-config.json:ro
+    # Uncomment if you have firebase-config.json
+    # volumes:
+    #   - ./firebase-config.json:/app/firebase-config.json:ro
 
 volumes:
   mysql-data:

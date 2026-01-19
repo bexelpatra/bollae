@@ -26,7 +26,7 @@ public class SystemConfigService {
         this.fcmService = fcmService;
     }
 
-    @Transactional(readOnly = true)
+    @Transactional
     public SystemConfigResponse getConfig() {
         SystemConfig config = systemConfigRepository.findById(1L)
                 .orElseGet(() -> {
